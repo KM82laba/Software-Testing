@@ -4,12 +4,11 @@ const { Select } = require('selenium-webdriver');
 async function createNewPaste() {
     let driver = await new Builder().forBrowser('chrome').build();
     try {
-        // Открыть https://pastebin.com
+        // Открыть https://ozon.by/
         await driver.get('https://ozon.by/');
         // Заполнение полей
         const searchInput = "Смартфоны";
         const filterBrandInput = "Apple";
-        const filteredItems = "IPhone";
 
         await driver.sleep(3000);
         await driver.findElement(By.id('reload-button')).click();
@@ -40,7 +39,7 @@ async function createNewPaste() {
 
     } finally {
         // Закрыть браузер после завершения
-        // await driver.quit();
+        await driver.quit();
     }
 }
 createNewPaste();
